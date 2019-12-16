@@ -1,28 +1,12 @@
-const express = require("express");
-const helmet = require("helmet");
+const express = require('express');
 
-// const RecipeRouter = require("./recipe/recipes-router");
-
+const apiRouter = require('./api-router.js');
+const configureMiddleware = require('./configure-middleware.js');
 
 const server = express();
 
-server.use(helmet(), express.json(), logger);
+configureMiddleware(server);
 
-// server.use("/api/recipe", RecipeRouter);
-
-
-//initial GET
-server.get('/', (req, res) => {
-    const message = process.env.MSG || "Hello World"
-    res.json({ message });
-});
-
-//custom middleware
-
-function logger(req, res, next) {
-    const newDate = new Date(Date.now());
-    console.log((`${req.method} to ${req.originalUrl} at ${newDate.toDateString()}, ${newDate.toTimeString()}`))
-    next();
-};
+server.use('/api', apiRouter);
 
 module.exports = server;
