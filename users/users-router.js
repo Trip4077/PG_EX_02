@@ -8,7 +8,7 @@ router.get('/', restricted, (req, res) => {
         .then(users => {
             res.json(users);
         })
-        .catch(err => res.send(err));
+        .catch(error =>  {console.log('----->', error); res.send(error)});
 });
 
 module.exports = router;
