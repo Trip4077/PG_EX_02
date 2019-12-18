@@ -9,4 +9,9 @@ configureMiddleware(server);
 
 server.use('/api', apiRouter);
 
+server.get('/', (req, res) => {
+    const message = process.env.MSG || "Hello World"
+    res.json({ message });
+});
+
 module.exports = server;

@@ -12,7 +12,7 @@ router.post("/register", (req, res) => {
 
     // override the plain text password with the hash
     user.password = hash;
-
+    console.log('USER:', user)
     Users.add(user)
         .then(saved => {
             res.status(201).json(saved);
