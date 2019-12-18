@@ -34,3 +34,114 @@ Add support for **sessions** and **cookies**, use them to keep a record of logge
 
 - Write a piece of **global** middleware that ensures a user is logged in when accessing _any_ route prefixed by `/api/restricted/`. For instance, `/api/restricted/something`, `/api/restricted/other`, and `/api/restricted/a` should all be protected by the middleware; only logged in users should be able to access these routes.
 - Build a React application that implements components to register, login and view a list of users. Gotta keep sharpening your React skills.
+
+
+# PostgreSQL Deployment
+
+## Step 1 
+- Ensure Everything Works Locally
+
+## Step 2 
+- Add 'pg' as dependency
+
+`yarn add pg` 
+
+or 
+
+`npm install pg`
+
+## Step 3 
+- configure knexfile file for production
+```
+  production: {
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+    migrations: { directory: "./data/migrations" },
+    seeds: { directory: "./data/seeds" }
+  }
+```
+
+## Step 3.5 (if not done prior) 
+- configure dbConfig file for production
+```
+require('dotenv').config();
+
+const knex = require("knex");
+const config = require("../knexfile.js");
+const environment = process.env.DB_CONNECT || "development";
+
+module.exports = knex(config[environment]);
+```
+
+## Step 4 
+- Make sure everything is pushed to master
+
+## Step 5 
+- Create a new heroku app
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+## Step 6 
+- Connect to Github Repo
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+## Step 7 
+- Deploy and Enable Auto Deployment
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+## Step 8 
+- Ensure Deployment Was Successful
+
+## Step 9 
+- Go To Resources Tab of Heroku App
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- Under Add-ons find Heroku Postgres
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- choose free version and click provision
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+## Step 10
+### Configure ENV variables
+
+- Go to settings tab
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- Click Reveal Config Vars
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- Set DB_CONNECT to production
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+- Set any other needed ENV variables
+
+## Step 11 
+- Check routes to ensure connection to PG DB, SHOULD get an error
+
+## Step 12 
+- run migrations on heroku via 
+
+	`npx heroku run knex migrate:latest --app your_heroku_app_name`
+
+## Step 12.5 (optional) 
+- run seeds on heroku via 
+
+	`npx heroku run knex seed:run --app your_heroku_app_name`
+
+## Step 13 
+- Check routes to ensure connection to PG DB, SHOULD NOT get an error
