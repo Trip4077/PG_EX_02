@@ -78,55 +78,46 @@ module.exports = knex(config[environment]);
 
 ## Step 5 
 - Create a new heroku app
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/create_new_app.JPG)
+![alt text](img/name_new_app.JPG)
 
 ## Step 6 
 - Connect to Github Repo
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/connect_gh_01.JPG)
+![alt text](img/connect_gh_02.JPG)
 
 ## Step 7 
 - Deploy and Enable Auto Deployment
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/deploy_01.JPG)
+![alt text](img/deploy_02.JPG)
 
 ## Step 8 
 - Ensure Deployment Was Successful
 
 ## Step 9 
 - Go To Resources Tab of Heroku App
+![alt text](img/pg_01.JPG)
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
 
 - Under Add-ons find Heroku Postgres
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/pg_02.JPG)
+![alt text](img/pg_03.JPG)
 
 - choose free version and click provision
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/pg_04.JPG)
 
 ## Step 10
 ### Configure ENV variables
 
 - Go to settings tab
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/env_01.JPG)
 
 - Click Reveal Config Vars
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/env_02.JPG)
+![alt text](img/env_03.JPG)
 
 - Set DB_CONNECT to production
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](img/env_04.JPG)
 
 - Set any other needed ENV variables
 
