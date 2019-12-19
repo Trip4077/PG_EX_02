@@ -87,7 +87,7 @@ module.exports = knex(config[environment]);
 - Check routes to ensure connection to PG DB, SHOULD get an error
 
 ## Step 12 
-- run migrations on heroku via 
+- run migrations on heroku via (may be prompted to login to heroku through CLI)
 
 	`npx heroku run knex migrate:latest --app your_heroku_app_name`
 
